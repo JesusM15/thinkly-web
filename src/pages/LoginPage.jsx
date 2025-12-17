@@ -24,7 +24,7 @@ export default function LoginPage(){
                     size={96}
                     className="text-center text-3xl"
                 />
-                <p className="text-center text-white text-xl">
+                <p className="text-center text-white text-xl font-semibold">
                     {t('slogan')}
                 </p>
             </div>
