@@ -7,6 +7,6 @@ export default function decorationSquare({ top, left, rotate }){
         ${top} ${left} rounded-md`} style={{
         borderColor: colors.gold,
     }}>
-
+        
     </div>
 }

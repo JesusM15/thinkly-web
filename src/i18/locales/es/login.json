@@ -1,3 +1,9 @@
 {
-    "slogan": "Estudia de forma interactiva"
+    "slogan": "Estudia de forma interactiva",
+    "register_here": "Registrate aquí",
+    "loginMessage": "Inicia sesión para acceder a una experiencia de estudio única.",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "LoginThinkly": "Entrar a Thinkly",
+    "LoginWithGoogle": "Iniciar sesión con Google"
 }

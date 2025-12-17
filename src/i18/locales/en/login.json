@@ -1,3 +1,9 @@
 {
-    "slogan": "Study interactively"
+    "slogan": "Study interactively",
+    "register_here": "Register here",
+    "loginMessage": "Sign in to access a unique study experience",
+    "username": "username",
+    "password": "password",
+    "LoginThinkly": "Sign in to Thinkly",
+    "LoginWithGoogle": "Sign in with Google"
 }
