@@ -1,0 +1,19 @@
+.background {
+    background: #F9FAFB;
+}
+
+.textSecondary{
+    color: #6B7280;
+}
+
+.textPrimary {
+    color: #111827;
+}
+
+.primary-color{
+    color: #4F46E5 !important;
+}
+
+.textPrimaryHover:hover{
+    color: #111827;
+}

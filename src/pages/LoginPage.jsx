@@ -10,6 +10,8 @@ import Button from "../components/Button";
 import googleIcon from '../assets/logos/google.png'
 import { getMe, login } from "../../api/auth";
 
+
+
 export default function LoginPage(){
     const { t } = useTranslation('login');
 
@@ -17,8 +19,10 @@ export default function LoginPage(){
     const [ password, setPassword ] = useState('');
 
     const [ loginError, setLoginError ] = useState(null);
+    const [ isLoading, setIsLoading ] = useState(false);
 
     const handleLogin = async (username, password) => {
+        setIsLoading(true);
         const res = await login({ username, password });
 
         if(res.status == 200 || res.status == 201){
@@ -35,10 +39,15 @@ export default function LoginPage(){
     };
 
     return <main
-    className="h-screen flex"
+    className="h-screen flex relative"
     style={{
         background: colors?.primary
     }}>
+        {/* {
+            isLoading && <div className="absolute h-12 w-12 border-4 border-purple-600 rounded-full top-0 left-0 right-0 bottom-0 m-auto">
+                Loading
+            </div>
+        } */}
         <section className="flex-1/4 flex justify-center items-center h-full relative">   
             <div className="flex flex-col justify-center items-center gap-4">
                 <LuBrain 
@@ -104,6 +113,7 @@ export default function LoginPage(){
                     background={colors.primary}
                     onClick={() => {
                        handleLogin(username, password);
+                       setIsLoading(false);
                     }}
                 />
                     
