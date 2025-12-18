@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import colors from "../constants/colors"
 import { LuBrain } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
@@ -8,9 +8,31 @@ import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import Button from "../components/Button";
 import googleIcon from '../assets/logos/google.png'
+import { getMe, login } from "../../api/auth";
 
 export default function LoginPage(){
     const { t } = useTranslation('login');
+
+    const [ username, setUsername ] = useState('');
+    const [ password, setPassword ] = useState('');
+
+    const [ loginError, setLoginError ] = useState(null);
+
+    const handleLogin = async (username, password) => {
+        const res = await login({ username, password });
+
+        if(res.status == 200 || res.status == 201){
+            const data = await getMe();
+            console.log(data);
+        }
+
+        if(res.status >= 400){
+            setLoginError(res.data.detail);
+            return;
+        }
+
+
+    };
 
     return <main
     className="h-screen flex"
@@ -37,8 +59,8 @@ export default function LoginPage(){
         <DecorationSquare top="top-[74%]" left="left-[78%]" rotate="rotate-[8deg]" />
 
         </section>
-        <section className="bg-white flex h-full flex-1 px-20 py-16 flex-col gap-12">
-            <h1 className="text-3xl font-bold" style={{color: colors.textPrimary}}>
+        <section className="bg-white flex h-full flex-1 px-16 py-16 flex-col gap-12 justify-center">
+            <h1 className="text-4xl font-bold" style={{color: colors.textPrimary}}>
                 <span style={{color: colors.primary}}>Think</span>ly
             </h1>
 
@@ -53,12 +75,23 @@ export default function LoginPage(){
             }}>
                 <div className="flex flex-col gap-4 pb-6">
                     <Input 
+                        error={loginError}
+                        value={username}
+                        onChange={({ target }) => {
+                            setUsername(target.value)
+                        }}
                         Icon={
                             FaUser
                         }
                         placeholder={t('username')}
                     />
                     <Input 
+                        error={loginError}
+                        value={password}
+                        onChange={({ target }) => {
+                            setPassword(target.value);
+                        }}
+                        type="password"
                         Icon={
                             RiLockPasswordFill
                         }
@@ -70,7 +103,7 @@ export default function LoginPage(){
                     label={t('LoginThinkly')}
                     background={colors.primary}
                     onClick={() => {
-                        console.log("click login")
+                       handleLogin(username, password);
                     }}
                 />
                     
