@@ -1,34 +1,42 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useAuthStore = create((set) => ({
-  user: null,
-
-  accessToken: localStorage.getItem("access"),
-  refreshToken: localStorage.getItem("refresh"),
-  isAuthenticated: !!localStorage.getItem("access"),
-
-  setTokens: ({ access, refresh }) => {
-    localStorage.setItem("access", access);
-    localStorage.setItem("refresh", refresh);
-
-    set({
-      accessToken: access,
-      refreshToken: refresh,
-      isAuthenticated: true,
-    });
-  },
-
-  setUser: (user) => set({ user }),
-
-  logout: () => {
-    localStorage.removeItem("access");
-    localStorage.removeItem("refresh");
-
-    set({
+export const useAuthStore = create(
+  persist(
+    (set) => ({
       user: null,
       accessToken: null,
       refreshToken: null,
       isAuthenticated: false,
-    });
-  },
-}));
+
+      setTokens: ({ access, refresh }) =>
+        set({
+          accessToken: access,
+          refreshToken: refresh,
+          isAuthenticated: true,
+        }),
+
+      setUser: (user) =>
+        set({
+          user,
+          isAuthenticated: true,
+        }),
+
+      logout: () =>
+        set({
+          user: null,
+          accessToken: null,
+          refreshToken: null,
+          isAuthenticated: false,
+        }),
+    }),
+    {
+      name: "thinkly-auth", // clave en localStorage
+      partialize: (state) => ({
+        accessToken: state.accessToken,
+        refreshToken: state.refreshToken,
+        isAuthenticated: state.isAuthenticated,
+      }),
+    }
+  )
+);
