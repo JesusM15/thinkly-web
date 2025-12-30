@@ -4,5 +4,9 @@
     "Practice": "Practicar",
     "Profile": "Perfil",
     "Hi": "Hola",
-    "days": "Días"
+    "days": "Días",
+    "newSet": "Nuevo set",
+    "currentLevel": "Nivel Actual",
+    "nextLevelMessage": "Progreso al siguiente nivel"
+
 }

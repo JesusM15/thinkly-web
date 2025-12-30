@@ -2,11 +2,11 @@ import SideBar from "../../components/SideBar";
 
 export default function Layout({ children }){
 
-    return <main className="flex gap-4 overflow-hidden">
+    return <main className="flex overflow-hidden">
 
         <SideBar />
 
-        <section className="flex-1 p-5 scroll-auto">
+        <section className="flex-1 p-0 scroll-auto">
             {children}
         </section>
     </main>

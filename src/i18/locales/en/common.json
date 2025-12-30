@@ -4,5 +4,8 @@
     "Practice": "Practice",
     "Profile": "Profile",
     "Hi": "Hi",
-    "days": "Days"
+    "days": "Days",
+    "newSet": "New set",
+    "currentLevel": "Current Level",
+    "nextLevelMessage": "Progress to the next level"
 }

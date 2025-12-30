@@ -4,7 +4,8 @@ import { useAuthStore } from "../store/auth";
 import Layout from "./layout";
 import Streak from "../components/Streak";
 import Button from "../components/Button";
-import { AiOutlinePlus } from "react-icons/ai";
+import RadiusButton from "../components/RadiusButton";
+import LevelCard from "../components/LevelCard";
 
 
 const DashboardPage = () => {
@@ -13,7 +14,7 @@ const DashboardPage = () => {
     const { t: tDash } = useTranslation('dashboard');
 
     return <Layout>
-        <section className="flex justify-between ">
+        <section className="flex justify-between border-b p-4 px-8 border-gray-200">
             <div className="flex-1">
                 <h1 className="font-bold text-3xl" style={{color: colors.textPrimary}}>
                     ¡{t('Hi')}, {user?.username}!
@@ -26,16 +27,19 @@ const DashboardPage = () => {
                 <Streak 
                     user={user}
                 />
-                <button className="px-4 text-white font-semibold py-2 rounded-full flex flex-row gap-1 items-center" style={{
-                    backgroundColor: colors.primary,
-                }}>
-                    <AiOutlinePlus 
-                        color={"#fff"}
-                        size={20}
-                    />
-                    Nuevo set
-                </button>
+                <RadiusButton 
+                    label={t('newSet')}
+                    backgroundColor={colors.primary}
+                    onClick={() => {
+
+                    }}
+                />
             </article>
+        </section>
+        <section className="bg-gray-100 px-8 h-full pt-8">
+
+            <LevelCard user={user} />
+
         </section>
     </Layout>
 }
