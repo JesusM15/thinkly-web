@@ -3,6 +3,7 @@ import { useAuthStore } from "./store/auth";
 
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import FormSetPage from "./pages/FormSetPage";
 
 export default function AppRoutes() {
   const user = useAuthStore((state) => state.user);
@@ -17,6 +18,7 @@ export default function AppRoutes() {
       {user ? (
         <>
           <Route path="/" element={<DashboardPage />} />
+          <Route path='/formset/:id?' element={<FormSetPage />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </>
       ) : (

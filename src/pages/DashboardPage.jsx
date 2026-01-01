@@ -6,12 +6,15 @@ import Streak from "../components/Streak";
 import Button from "../components/Button";
 import RadiusButton from "../components/RadiusButton";
 import LevelCard from "../components/LevelCard";
+import { useNavigate } from "react-router";
 
 
-const DashboardPage = () => {
+const DashboardPage = (props) => {
     const user = useAuthStore((state) => state.user);
     const { t } = useTranslation('common');
     const { t: tDash } = useTranslation('dashboard');
+
+    const navigate = useNavigate();
 
     return <Layout>
         <section className="flex justify-between border-b p-4 px-8 border-gray-200">
@@ -31,7 +34,9 @@ const DashboardPage = () => {
                     label={t('newSet')}
                     backgroundColor={colors.primary}
                     onClick={() => {
-
+                        navigate({
+                            pathname: '/formset/'
+                        });
                     }}
                 />
             </article>

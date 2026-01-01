@@ -3,6 +3,7 @@ import colors from "../constants/colors";
 import { useTranslation } from "react-i18next";
 import { PiLightning } from "react-icons/pi";
 import ProgressBar from "./ProgressBar";
+import DegradadeIcon from "./DegradadeIcon";
 
 export default function LevelCard({ user }){
     const { t } = useTranslation('common');
@@ -16,13 +17,9 @@ export default function LevelCard({ user }){
 
         <div className="flex">
             <div className="flex gap-3 flex-1">
-                <div className="h-12 w-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg shadow-indigo-200 flex justify-center items-center" style={{
-                }}>
-                    <AiOutlineStar 
-                        color={"#fff"}
-                        size={24}
-                    />
-                </div>
+                <DegradadeIcon
+                    Icon={AiOutlineStar}
+                />
                 <div className="text-sm" style={{
                     color: colors.textSecondary
                 }}>
@@ -30,7 +27,7 @@ export default function LevelCard({ user }){
                     <span className="text-xl font-extrabold" style={{
                         color: colors.textPrimary
                     }}>
-                        Nivel {user?.profile?.level?.level || 0}
+                        {t('level')} {user?.profile?.level?.level || 0}
                     </span>
                 </div>
 

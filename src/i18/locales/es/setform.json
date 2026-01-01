@@ -1,0 +1,9 @@
+{
+    "newSet": "Crear nuevo set",
+    "instruction": "Crea una colección de preguntas para practicar",
+    "form": {
+        "title": "Nombre del Set",
+        "title_placeholder": "Ej: Cálculo Diferencial - Derivadas"
+
+    }
+}

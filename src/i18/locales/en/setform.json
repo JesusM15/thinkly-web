@@ -1,0 +1,8 @@
+{
+    "newSet": "Create a new set",
+    "instruction": "Create a collection of practice questions.",
+    "form": {
+        "title": "Set title",
+        "title_placeholder": "E.g. Differential Calculus - Derivates"
+    }
+}

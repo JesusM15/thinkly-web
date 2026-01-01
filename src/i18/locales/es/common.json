@@ -7,6 +7,6 @@
     "days": "Días",
     "newSet": "Nuevo set",
     "currentLevel": "Nivel Actual",
-    "nextLevelMessage": "Progreso al siguiente nivel"
-
+    "nextLevelMessage": "Progreso al siguiente nivel",
+    "level": "Nivel"
 }

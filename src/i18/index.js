@@ -10,6 +10,9 @@ import enCommon from './locales/en/common.json';
 import esDashboard from './locales/es/dashboard.json';
 import enDashboard from './locales/en/dashboard.json';
 
+import esSetForm from './locales/es/setform.json';
+import enSetForm from './locales/en/setform.json';
+
 const getBrowserLanguage = () => {
     const lang = navigator.language.split('-')[0];
     return ['es', 'en'].includes(lang) ? lang : 'es';
@@ -22,17 +25,19 @@ i18n
         es: {
             login: esLogin,
             common: esCommon,
-            dashboard: esDashboard
+            dashboard: esDashboard,
+            setform: esSetForm,
         },
         en: {
             login: enLogin,
             common: enCommon,
-            dashboard: enDashboard
+            dashboard: enDashboard,
+            setform: enSetForm,
         },
     },
     lng: localStorage.getItem("lang") || getBrowserLanguage(),
     fallbackLng: 'es',
-    ns: ['login', 'common'],
+    ns: ['login', 'common', 'dashboard', 'setform'],
     defaultNS: 'common',
     interpolation: {
         escapeValue: false,
