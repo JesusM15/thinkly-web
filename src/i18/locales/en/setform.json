@@ -3,6 +3,8 @@
     "instruction": "Create a collection of practice questions.",
     "form": {
         "title": "Set title",
-        "title_placeholder": "E.g. Differential Calculus - Derivates"
+        "title_placeholder": "E.g. Differential Calculus - Derivates",
+        "add_tag_placeholder": "Add a tag and press Enter",
+        "description": "Description (optional)"
     }
 }

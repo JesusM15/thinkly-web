@@ -8,5 +8,11 @@
     "newSet": "New set",
     "currentLevel": "Current Level",
     "nextLevelMessage": "Progress to the next level",
-    "level": "Level"
+    "level": "Level",
+    "public": "Public",
+    "private": "Private",
+    "visibility": "Visibility",
+    "add": "Add",
+    "continue": "Continue",
+    "cancel": "Cancel"
 }

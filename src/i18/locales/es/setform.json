@@ -3,7 +3,9 @@
     "instruction": "Crea una colección de preguntas para practicar",
     "form": {
         "title": "Nombre del Set",
-        "title_placeholder": "Ej: Cálculo Diferencial - Derivadas"
+        "title_placeholder": "Ej: Cálculo Diferencial - Derivadas",
+        "add_tag_placeholder": "Añade una etiqueta y presiona Enter",
+        "description": "Descripción (opcional)"
 
     }
 }
