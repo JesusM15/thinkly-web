@@ -9,6 +9,12 @@ export const useAuthStore = create(
         accessToken: null,
         refreshToken: null,
         isAuthenticated: false,
+        hasHydrated: false,
+        authReady: false,
+        
+        setAuthReady: () => set({ authReady: true }),
+
+        setHasHydrated: () => set({ hasHydrated: true }),
 
         setTokens: ({ access, refresh }) =>
           set(
@@ -25,7 +31,7 @@ export const useAuthStore = create(
           set(
             {
               user,
-              isAuthenticated: true,
+              isAuthenticated: !!user,
             },
             false,
             "auth/setUser"
@@ -50,10 +56,12 @@ export const useAuthStore = create(
           refreshToken: state.refreshToken,
           isAuthenticated: state.isAuthenticated,
         }),
+        onRehydrateStorage: () => (state) => {
+          state?.setHasHydrated();
+        },
       }
     ),
-    {
-      name: "Thinkly Auth Store", // así aparece en Redux DevTools
-    }
+    { name: "Thinkly Auth Store" }
   )
 );
+

@@ -7,11 +7,13 @@ export default function AuthBootstrap({ children }) {
     accessToken,
     setUser,
     logout,
+    setAuthReady,
   } = useAuthStore();
 
   useEffect(() => {
     if (!accessToken) {
       setUser(null);
+      setAuthReady();
       return;
     }
 
@@ -22,8 +24,12 @@ export default function AuthBootstrap({ children }) {
       })
       .catch(() => {
         logout();
+      })
+      .finally(() => {
+        setAuthReady();
       });
   }, []);
 
   return children;
 }
+

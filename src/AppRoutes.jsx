@@ -4,22 +4,24 @@ import { useAuthStore } from "./store/auth";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import FormSetPage from "./pages/FormSetPage";
+import SetCreatorPage from "./pages/set/SetCreatorPage";
 
 export default function AppRoutes() {
   const user = useAuthStore((state) => state.user);
+  const authReady = useAuthStore((s) => s.authReady);
 
-  /* Aún no sabemos si está logueado (ej: /me pendiente) */
-  if (user === undefined) {
-    return null; // o un loader
+  if (!authReady) {
+    return null; // o loader
   }
-
+  
   return (
     <Routes>
       {user ? (
         <>
           <Route path="/" element={<DashboardPage />} />
           <Route path='/formset/:id?' element={<FormSetPage />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route path='/set-creator/:id' element={<SetCreatorPage />} />
+          <Route path="*" element={<DashboardPage />} />
         </>
       ) : (
         <>

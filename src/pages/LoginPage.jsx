@@ -27,7 +27,6 @@ export default function LoginPage(){
 
         if(res.status == 200 || res.status == 201){
             const data = await getMe();
-            console.log(data);
         }
 
         if(res.status >= 400){
